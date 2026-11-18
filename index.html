@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="劉家瑄與徐文倩的婚禮邀請，誠摯邀請您於 2026 年 12 月 20 日一同見證幸福。"
+    />
+    <meta name="theme-color" content="#f7f5ef" />
+    <title>劉家瑄 & 徐文倩｜結婚囍宴邀請</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Ma+Shan+Zheng&family=Noto+Serif+TC:wght@400;500;600;700&family=Noto+Sans+TC:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&text=%E6%B3%95%E9%A0%8C%E5%BB%B3&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --paper: #f7f5ef;
+        --paper-deep: #efede4;
+        --ink: #263c34;
+        --muted: #77786e;
+        --gold: #b69a69;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 5rem;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: "DM Sans", "Noto Serif TC", serif;
+      }
+
+      .serif {
+        font-family: "Noto Serif TC", serif;
+      }
+
+      .eyebrow {
+        color: var(--gold);
+        font-size: 0.68rem;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+      }
+
+      .hero {
+        background-color: #263c34;
+      }
+
+      .hero-slides {
+        position: absolute;
+        inset: 0;
+      }
+
+      .hero-slide {
+        position: absolute;
+        inset: 0;
+        background-position: center;
+        background-size: cover;
+        opacity: 0;
+        transition: opacity 1.5s ease-in-out;
+      }
+
+      .hero-slide.is-portrait {
+        background-position: center 30%;
+      }
+
+      @media (max-width: 767px) {
+        .hero-slide {
+          background-position: center center;
+        }
+      }
+
+      .hero-slide.is-visible {
+        opacity: 1;
+      }
+
+      .hero-slides::after {
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(0deg, rgb(20 31 27 / 62%) 0%, rgb(20 31 27 / 34%) 48%, rgb(20 31 27 / 42%) 100%),
+          linear-gradient(90deg, rgb(20 31 27 / 20%) 0%, transparent 50%, rgb(20 31 27 / 20%) 100%);
+        content: "";
+        pointer-events: none;
+      }
+
+      .section-pad {
+        padding: 6rem 1.5rem;
+      }
+
+      .transport-map {
+        display: block;
+        height: auto;
+        width: 100%;
+      }
+
+      .transport-map-frame {
+        margin-inline: auto;
+        width: min(100%, 360px);
+      }
+
+      .venue-map {
+        position: relative;
+        aspect-ratio: 1558 / 1050;
+      }
+
+      .map-highlight {
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 6;
+        vector-effect: non-scaling-stroke;
+        filter: url(#brush-rough);
+        animation: brush-pulse 2.8s ease-in-out infinite;
+        pointer-events: none;
+      }
+
+      .map-highlight--forest {
+        color: #9c8053;
+      }
+
+      .map-highlight--pool {
+        color: #bf694f;
+      }
+
+      .map-highlight--secondary {
+        stroke-width: 3;
+        opacity: 0.72;
+        animation-delay: 0.25s;
+      }
+
+      .map-note {
+        position: absolute;
+        z-index: 2;
+        top: 61.3%;
+        left: 42.6%;
+        color: #9b4937;
+        font-family: "LXGW WenKai TC", "DFKai-SB", "BiauKai", cursive;
+        font-size: clamp(0.95rem, 1.6vw, 1.4rem);
+        font-weight: 400;
+        letter-spacing: 0.08em;
+        transform: translate(-50%, -50%);
+        white-space: nowrap;
+        text-shadow:
+          -1px -1px 0 #fff,
+          1px -1px 0 #fff,
+          -1px 1px 0 #fff,
+          1px 1px 0 #fff;
+      }
+
+      @keyframes brush-pulse {
+        0%, 100% {
+          opacity: 0.72;
+        }
+
+        50% {
+          opacity: 1;
+        }
+      }
+
+      .timeline-line::before {
+        position: absolute;
+        top: 0.5rem;
+        bottom: 0.5rem;
+        left: 0.4rem;
+        width: 1px;
+        background: #d7d2c4;
+        content: "";
+      }
+
+      .tab-button[aria-selected="true"] {
+        color: var(--ink);
+        border-color: var(--ink);
+      }
+
+      .tab-button[aria-selected="false"] {
+        color: #8a897f;
+        border-color: transparent;
+      }
+
+      @media (min-width: 768px) {
+        .section-pad {
+          padding: 8rem 2rem;
+        }
+
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:bg-white focus:px-4 focus:py-3"
+      href="#main"
+    >
+      跳至主要內容
+    </a>
+
+    <header class="absolute inset-x-0 top-0 z-30 text-white">
+      <nav
+        class="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 md:px-12"
+        aria-label="主要導覽"
+      >
+        <a class="serif text-sm tracking-[0.16em]" href="#home" aria-label="回到首頁">
+          C & W <span class="ml-1 text-xs text-white/70">・ 2026.12.20</span>
+        </a>
+        <button
+          id="menu-toggle"
+          class="rounded-full border border-white/40 p-2 md:hidden"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-menu"
+          aria-label="開啟導覽選單"
+        >
+          <svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 8h16M4 16h16" />
+          </svg>
+        </button>
+        <div
+          id="site-menu"
+          class="absolute left-0 right-0 top-full hidden flex-col gap-5 bg-[#263c34]/95 px-6 py-6 text-sm tracking-widest md:static md:flex md:flex-row md:items-center md:gap-9 md:bg-transparent md:p-0"
+        >
+          <a class="nav-link transition hover:text-[#d4c29d]" href="#story">我們的故事</a>
+          <a class="nav-link transition hover:text-[#d4c29d]" href="#timeline">婚禮流程</a>
+          <a class="nav-link transition hover:text-[#d4c29d]" href="#transport">交通資訊</a>
+          <a class="nav-link transition hover:text-[#d4c29d]" href="#epilogue">誠摯邀請</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section
+        id="home"
+        class="hero relative flex min-h-[760px] items-center justify-center overflow-hidden text-white md:min-h-[850px]"
+        aria-labelledby="hero-title"
+      >
+        <div class="hero-slides" aria-hidden="true">
+          <div
+            class="hero-slide is-visible"
+            style="background-image: url('images/1.jpg')"
+          ></div>
+          <div class="hero-slide"></div>
+        </div>
+        <div class="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center px-6 pb-20 pt-36 text-center md:px-12 md:py-36">
+          <p class="mb-5 text-xs tracking-[0.42em] text-white/80 md:text-sm">SUNDAY · DECEMBER 20, 2026</p>
+          <p class="serif mb-4 text-sm tracking-[0.3em] text-white/80 md:text-base">Invitation</p>
+          <h1 id="hero-title" class="serif text-3xl font-medium leading-relaxed tracking-[0.12em] md:text-5xl">
+            結婚囍宴<br class="md:hidden" /> 誠摯邀約
+          </h1>
+          <div class="my-7 h-px w-14 bg-[#c4ad80]"></div>
+          <p class="serif text-2xl tracking-[0.12em] md:text-4xl">劉家瑄 <span class="mx-2 text-[#d3bd8f]">&amp;</span> 徐文倩</p>
+          <div class="mt-8 space-y-2 text-sm tracking-[0.12em] text-white/85 md:text-base">
+            <p>青青食尚花園會館</p>
+            </div>
+          <a
+            class="mt-10 inline-flex items-center gap-3 border-b border-white/60 pb-2 text-xs tracking-[0.2em] transition hover:border-[#d3bd8f] hover:text-[#e8d9b8]"
+            href="#story"
+          >
+            一起走進我們的故事
+            <svg aria-hidden="true" viewBox="0 0 20 20" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.4">
+              <path d="M10 3v13m-5-5 5 5 5-5" />
+            </svg>
+          </a>
+        </div>
+        <span class="absolute bottom-8 right-7 hidden text-[10px] tracking-[0.3em] text-white/60 [writing-mode:vertical-rl] md:block">
+          A DAY TO REMEMBER
+        </span>
+      </section>
+
+      <section id="story" class="section-pad text-center" aria-labelledby="story-title">
+        <div class="mx-auto max-w-3xl">
+          <p class="eyebrow mb-4">Our story</p>
+          <h2 id="story-title" class="serif mb-8 text-2xl font-medium tracking-[0.12em] md:text-3xl">
+            在迂迴的路上，遇見彼此
+          </h2>
+          <div class="mx-auto mb-8 h-px w-10 bg-[#b69a69]"></div>
+          <blockquote class="serif whitespace-pre-line text-base leading-[2.4] tracking-[0.1em] text-[#555b50] md:text-lg">
+            「如果妳的內心是一座孤島，
+            那我的便是崎嶇的山谷。
+            我們都歷經了跋山涉水，
+            才抵達彼此身邊，並選擇留下。」
+          </blockquote>
+          <p class="mt-7 text-xs tracking-[0.18em] text-[#929085]">— 願把這份餘生，慢慢走成一輩子的樣子。</p>
+        </div>
+      </section>
+
+      <section id="timeline" class="section-pad bg-[#eeece4]" aria-labelledby="timeline-title">
+        <div class="mx-auto max-w-4xl">
+          <div class="mb-14 text-center">
+            <p class="eyebrow mb-4">The celebration</p>
+            <h2 id="timeline-title" class="serif text-2xl font-medium tracking-[0.14em] md:text-3xl">典禮與宴客時間</h2>
+            <p class="mt-5 text-sm tracking-[0.16em] text-[#77786e]">2026 / 12 / 20 <span class="mx-2">・</span> 星期日</p>
+          </div>
+          <div class="mx-auto max-w-2xl border-y border-[#d8d4c8] px-4 py-4 md:px-16">
+            <ol class="timeline-line relative space-y-1">
+              <li class="relative grid grid-cols-[5.5rem_1fr] gap-4 py-5 pl-7 md:grid-cols-[7rem_1fr]">
+                <span class="absolute left-0 top-8 h-[9px] w-[9px] rounded-full border-2 border-[#b69a69] bg-[#eeece4]"></span>
+                <time class="text-sm tracking-widest text-[#9a8159]" datetime="2026-12-20T10:30">10:30</time>
+                <div>
+                  <p class="serif text-sm tracking-[0.1em] md:text-base">證婚儀式入席</p>
+                  <p class="mt-1 text-xs tracking-[0.08em] text-[#858478]">證婚地點｜落羽松森林</p>
+                </div>
+              </li>
+              <li class="relative grid grid-cols-[5.5rem_1fr] gap-4 py-5 pl-7 md:grid-cols-[7rem_1fr]">
+                <span class="absolute left-0 top-8 h-[9px] w-[9px] rounded-full border-2 border-[#b69a69] bg-[#eeece4]"></span>
+                <time class="text-sm tracking-widest text-[#9a8159]" datetime="2026-12-20T11:00">11:00</time>
+                <span class="serif text-sm tracking-[0.1em] md:text-base">證婚儀式開始</span>
+              </li>
+              <li class="relative grid grid-cols-[5.5rem_1fr] gap-4 py-5 pl-7 md:grid-cols-[7rem_1fr]">
+                <span class="absolute left-0 top-8 h-[9px] w-[9px] rounded-full border-2 border-[#b69a69] bg-[#eeece4]"></span>
+                <time class="text-sm tracking-widest text-[#9a8159]" datetime="2026-12-20T12:00">12:00</time>
+                <div>
+                  <p class="serif text-sm tracking-[0.1em] md:text-base">午宴入座 &amp; 茶會</p>
+                  <p class="mt-1 text-xs tracking-[0.08em] text-[#858478]">午宴地點｜法頌廳</p>
+                </div>
+              </li>
+              <li class="relative grid grid-cols-[5.5rem_1fr] gap-4 py-5 pl-7 md:grid-cols-[7rem_1fr]">
+                <span class="absolute left-0 top-8 h-[9px] w-[9px] rounded-full border-2 border-[#b69a69] bg-[#eeece4]"></span>
+                <time class="text-sm tracking-widest text-[#9a8159]" datetime="2026-12-20T12:30">12:30</time>
+                <span class="serif text-sm tracking-[0.1em] md:text-base">午宴開始</span>
+              </li>
+            </ol>
+          </div>
+          <figure class="mt-12">
+            <figcaption class="serif mb-5 text-center text-sm tracking-[0.12em] text-[#596158] md:text-base">
+              青青食尚花園會館・全區平面圖
+            </figcaption>
+            <a
+              href="images/transport/map.jpg"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="開啟標示婚宴場地的青青食尚花園會館全區平面圖原圖"
+              class="venue-map block overflow-hidden"
+            >
+              <img
+                class="absolute inset-0 h-full w-full border border-[#d8d4c8] bg-white object-contain"
+                src="images/transport/map.jpg"
+                alt="青青食尚花園會館全區平面圖，標示落羽松森林、池畔 B 區及法頌廳"
+                loading="lazy"
+              />
+              <svg
+                class="absolute inset-0 z-[1] h-full w-full"
+                viewBox="0 0 1558 1050"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <defs>
+                  <filter id="brush-rough" x="-10%" y="-10%" width="120%" height="120%">
+                    <feTurbulence type="fractalNoise" baseFrequency=".025" numOctaves="2" seed="12" result="texture" />
+                    <feDisplacementMap in="SourceGraphic" in2="texture" scale="4" xChannelSelector="R" yChannelSelector="G" />
+                  </filter>
+                </defs>
+                <g class="map-highlight map-highlight--forest">
+                  <path d="M 1516 425 C 1534 414 1546 438 1541 469 C 1549 508 1543 568 1534 611 C 1527 644 1504 660 1493 644 C 1484 630 1491 584 1487 546 C 1483 505 1490 465 1488 441 C 1491 428 1506 422 1516 425 Z" />
+                  <path class="map-highlight--secondary" d="M 1510 432 C 1528 418 1540 442 1535 476 C 1543 514 1537 572 1529 616 C 1521 646 1501 652 1498 636" />
+                </g>
+                <g class="map-highlight map-highlight--pool">
+                  <path d="M 528 635 C 550 607 603 594 647 599 C 700 592 761 607 789 632 C 812 653 787 675 743 682 C 688 692 611 678 555 662 C 524 653 511 643 528 635 Z" />
+                  <path class="map-highlight--secondary" d="M 521 627 C 549 602 604 593 660 598 C 718 598 772 615 797 638 C 816 658 779 679 737 685 C 677 694 604 673 541 654" />
+                </g>
+              </svg>
+              <span class="map-note" aria-hidden="true">法頌廳</span>
+            </a>
+            <div class="mt-4 flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs tracking-[0.08em] text-[#77786e]">
+              <span class="inline-flex items-center gap-2">
+                <span class="h-3 w-3 rounded-full border-2 border-[#9c8053]"></span>
+                落羽松森林
+              </span>
+              <span class="inline-flex items-center gap-2">
+                <span class="h-3 w-3 rounded-full border-2 border-[#bf694f]"></span>
+                池畔 B 區・法頌廳
+              </span>
+            </div>
+          </figure>
+          <p class="mt-8 text-center text-xs tracking-[0.12em] text-[#88877d]">期待與您共享冬日午後的美好時光</p>
+        </div>
+      </section>
+
+      <section id="transport" class="section-pad" aria-labelledby="transport-title">
+        <div class="mx-auto max-w-6xl">
+          <div class="mb-12 text-center">
+            <p class="eyebrow mb-4">Getting there</p>
+            <h2 id="transport-title" class="serif text-2xl font-medium tracking-[0.14em] md:text-3xl">交通與場地資訊</h2>
+            <p class="serif mt-5 text-sm tracking-[0.08em] text-[#77786e] md:text-base">青青食尚花園會館・法頌廳</p>
+            <p class="mt-2 text-xs tracking-[0.08em] text-[#858478] md:text-sm">台北市士林區至善路二段 266 巷 32 號</p>
+          </div>
+
+          <div class="grid gap-10 md:grid-cols-[0.9fr_1.1fr] md:gap-14">
+            <div>
+              <div class="mb-7 flex flex-wrap border-b border-[#d9d5ca]" role="tablist" aria-label="交通方式">
+                <button
+                  id="tab-drive"
+                  class="tab-button border-b px-3 py-3 text-xs tracking-[0.12em] transition md:px-5"
+                  type="button"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="panel-drive"
+                  tabindex="0"
+                >
+                  自行開車 <span class="ml-1 hidden text-[10px] tracking-normal sm:inline">DRIVE</span>
+                </button>
+                <button
+                  id="tab-public"
+                  class="tab-button border-b px-3 py-3 text-xs tracking-[0.12em] transition md:px-5"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="panel-public"
+                  tabindex="-1"
+                >
+                  大眾交通 <span class="ml-1 hidden text-[10px] tracking-normal sm:inline">PUBLIC</span>
+                </button>
+                <button
+                  id="tab-shuttle"
+                  class="tab-button border-b px-3 py-3 text-xs tracking-[0.12em] transition md:px-5"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="panel-shuttle"
+                  tabindex="-1"
+                >
+                  接駁專車 <span class="ml-1 hidden text-[10px] tracking-normal sm:inline">SHUTTLE</span>
+                </button>
+              </div>
+
+              <div id="panel-drive" role="tabpanel" aria-labelledby="tab-drive">
+                <ol class="space-y-4 text-sm leading-7 text-[#5d6259]">
+                  <li><span class="mr-2 text-[#a88f63]">01</span><strong class="font-medium text-[#36463d]">南下：</strong>高速公路 → 堤頂大水道 → 右轉快速道路至內湖路一段 → 過自強隧道 → 故宮路與至善路口右轉 → 青青食尚花園會館。</li>
+                  <li><span class="mr-2 text-[#a88f63]">02</span><strong class="font-medium text-[#36463d]">北上：</strong>高速公路 → 濱江交流道下 → 左轉大直橋 → 過自強隧道 → 故宮路與至善路口右轉 → 青青食尚花園會館。</li>
+                  <li><span class="mr-2 text-[#a88f63]">03</span><strong class="font-medium text-[#36463d]">台北市東區：</strong>正氣橋 → 堤頂大道 → 過自強隧道即可抵達。</li>
+                  <li><span class="mr-2 text-[#a88f63]">04</span><strong class="font-medium text-[#36463d]">台北市北區：</strong>中山北路或文林路 → 中正路往外雙溪方向即可抵達。</li>
+                  <li><span class="mr-2 text-[#a88f63]">05</span><strong class="font-medium text-[#36463d]">台北市區：</strong>復興北路機場地下道 → 過大直橋右轉 → 過自強隧道即可抵達。</li>
+                </ol>
+              </div>
+              <div id="panel-public" class="hidden" role="tabpanel" aria-labelledby="tab-public" tabindex="0">
+                <p class="serif text-sm leading-8 tracking-[0.05em] text-[#5d6259]">
+                  搭乘捷運淡水線至士林捷運站一號出口，轉乘公車 255、304、小型公車 18、小型公車 19，至故宮博物院站下車。
+                </p>
+              </div>
+              <div id="panel-shuttle" class="hidden" role="tabpanel" aria-labelledby="tab-shuttle" tabindex="0">
+                <p class="serif text-sm leading-8 tracking-[0.05em] text-[#5d6259]">
+                  乘車處：劍南路捷運站一號出口，直行至北安路交叉口。<br />
+                  午宴接駁時間：10:30 – 12:30
+                </p>
+                <p class="mt-5 border-l border-[#b69a69] pl-4 text-xs leading-6 text-[#88877d]">請預留交通時間，期待與您在現場相見。</p>
+              </div>
+            </div>
+
+            <div class="self-start">
+              <a
+                href="https://maps.google.com/?q=%E9%9D%92%E9%9D%92%E9%A3%9F%E5%B0%9A%E8%8A%B1%E5%9C%92%E6%9C%83%E9%A4%A8"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="在 Google 地圖查看青青食尚花園會館"
+                class="transport-map-frame group block"
+              >
+                <img
+                  class="transport-map"
+                  src="images/transport/transport.jpg"
+                  alt="青青食尚花園會館交通路線與周邊地圖"
+                  loading="lazy"
+                />
+              </a>
+              <a
+                class="mt-4 inline-flex items-center gap-2 text-xs tracking-[0.12em] text-[#596158] transition hover:text-[#a88f63]"
+                href="https://maps.google.com/?q=%E9%9D%92%E9%9D%92%E9%A3%9F%E5%B0%9A%E8%8A%B1%E5%9C%92%E6%9C%83%E9%A4%A8"
+                target="_blank"
+                rel="noreferrer"
+              >
+                在 Google 地圖中開啟
+                <svg aria-hidden="true" viewBox="0 0 20 20" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.4">
+                  <path d="M5 15 15 5M6 5h9v9" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="epilogue" class="relative overflow-hidden bg-[#293d35] px-6 py-24 text-center text-[#f7f5ef] md:py-32" aria-labelledby="epilogue-title">
+        <div class="absolute left-1/2 top-10 h-24 w-24 -translate-x-1/2 rounded-full border border-white/10 md:top-14 md:h-36 md:w-36"></div>
+        <div class="relative mx-auto max-w-2xl">
+          <p class="eyebrow mb-5">With love</p>
+          <h2 id="epilogue-title" class="serif mb-9 text-xl font-medium tracking-[0.18em] md:text-2xl">冬日相聚，分享幸福</h2>
+          <p class="serif whitespace-pre-line text-sm leading-[2.4] tracking-[0.1em] text-white/85 md:text-base">
+            如果可以，
+            我們希望把這段關係，
+            慢慢走成一輩子的樣子。
+
+            這一路走來不容易，
+            幸好有身邊每一位親愛的朋友一路相伴。
+
+            誠摯邀請大家在 12 月 20 日的冬日陽光下，
+            與我們一同見證、一同歡笑，分享我們的幸福。
+          </p>
+          <div class="mx-auto my-9 h-px w-10 bg-[#b69a69]"></div>
+          <p class="serif text-base tracking-[0.18em] md:text-lg">劉家瑄 &amp; 徐文倩 敬邀</p>
+          <p class="mt-4 text-[10px] tracking-[0.35em] text-white/50">SUNDAY · 12.20.2026</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-[#293d35] px-6 pb-7 text-center text-[10px] tracking-[0.2em] text-white/45">
+      MADE WITH LOVE <span class="mx-2">・</span> C &amp; W <span class="mx-2">・</span> 2026
+    </footer>
+
+    <script>
+      const heroImages = [
+        { src: "images/1.jpg", orientation: "landscape" },
+        { src: "images/2.jpg", orientation: "landscape" },
+        { src: "images/3.jpg", orientation: "portrait" },
+        { src: "images/4.jpg", orientation: "portrait" },
+        { src: "images/5.jpg", orientation: "landscape" },
+        { src: "images/6.jpg", orientation: "landscape" },
+      ];
+      const heroLayers = [...document.querySelectorAll(".hero-slide")];
+      let activeHeroImage = 0;
+      let visibleHeroLayer = 0;
+
+      function showNextHeroImage() {
+        const nextImageIndex = (activeHeroImage + 1) % heroImages.length;
+        const image = new Image();
+        image.addEventListener(
+          "load",
+          () => {
+            const nextLayerIndex = 1 - visibleHeroLayer;
+            const nextLayer = heroLayers[nextLayerIndex];
+            const nextHeroImage = heroImages[nextImageIndex];
+            nextLayer.style.backgroundImage = `url("${nextHeroImage.src}")`;
+            nextLayer.classList.toggle("is-portrait", nextHeroImage.orientation === "portrait");
+            nextLayer.classList.add("is-visible");
+            heroLayers[visibleHeroLayer].classList.remove("is-visible");
+            activeHeroImage = nextImageIndex;
+            visibleHeroLayer = nextLayerIndex;
+            window.setTimeout(showNextHeroImage, 6000);
+          },
+          { once: true },
+        );
+        image.src = heroImages[nextImageIndex].src;
+      }
+
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        window.setTimeout(showNextHeroImage, 6000);
+      }
+
+      const tabButtons = [...document.querySelectorAll('[role="tab"]')];
+      function activateTab(button) {
+        tabButtons.forEach((tab) => {
+          const selected = tab === button;
+          tab.setAttribute("aria-selected", String(selected));
+          tab.tabIndex = selected ? 0 : -1;
+          document.querySelector(`#${tab.getAttribute("aria-controls")}`).classList.toggle("hidden", !selected);
+        });
+      }
+
+      tabButtons.forEach((button, index) => {
+        button.addEventListener("click", () => activateTab(button));
+        button.addEventListener("keydown", (event) => {
+          if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+          event.preventDefault();
+          const direction = event.key === "ArrowRight" ? 1 : -1;
+          const nextTab = tabButtons[(index + direction + tabButtons.length) % tabButtons.length];
+          activateTab(nextTab);
+          nextTab.focus();
+        });
+      });
+
+      const menuToggle = document.querySelector("#menu-toggle");
+      const siteMenu = document.querySelector("#site-menu");
+      menuToggle.addEventListener("click", () => {
+        const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
+        menuToggle.setAttribute("aria-expanded", String(!isExpanded));
+        menuToggle.setAttribute("aria-label", isExpanded ? "開啟導覽選單" : "關閉導覽選單");
+        siteMenu.classList.toggle("hidden", isExpanded);
+        siteMenu.classList.toggle("flex", !isExpanded);
+      });
+      siteMenu.querySelectorAll(".nav-link").forEach((link) => {
+        link.addEventListener("click", () => {
+          menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.setAttribute("aria-label", "開啟導覽選單");
+          siteMenu.classList.add("hidden");
+          siteMenu.classList.remove("flex");
+        });
+      });
+    </script>
+  </body>
+</html>
